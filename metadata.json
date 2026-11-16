@@ -1,0 +1,6 @@
+{
+  "name": "APEXFIT EG",
+  "description": "Professional customizable workout tracker, dynamic set logger, and muscle volume analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
