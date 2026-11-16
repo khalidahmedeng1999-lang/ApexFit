@@ -68,7 +68,7 @@ fun HydrationScreen(
                 text = "Hydration",
                 fontSize = 26.sp,
                 fontWeight = FontWeight.Black,
-                color = ApexText,
+                color = ApexTextPrimary,
                 modifier = Modifier.padding(bottom = 4.dp)
             )
             Text(
@@ -82,7 +82,7 @@ fun HydrationScreen(
         item {
             Card(
                 modifier = Modifier.fillMaxWidth(),
-                colors = CardDefaults.cardColors(containerColor = ApexSurface),
+                colors = CardDefaults.cardColors(containerColor = ApexCard),
                 shape = RoundedCornerShape(16.dp)
             ) {
                 Column(
@@ -97,7 +97,7 @@ fun HydrationScreen(
                             modifier = Modifier.size(160.dp),
                             strokeWidth = 12.dp,
                             color = progressColor,
-                            trackColor = ApexSurface2,
+                            trackColor = ApexInput,
                             strokeCap = StrokeCap.Round
                         )
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -112,7 +112,7 @@ fun HydrationScreen(
                                 text = formatMl(uiState.todayWaterMl),
                                 fontSize = 28.sp,
                                 fontWeight = FontWeight.Black,
-                                color = ApexText
+                                color = ApexTextPrimary
                             )
                             Text(
                                 text = "of ${formatMl(uiState.dailyWaterTargetMl)}",
@@ -199,8 +199,8 @@ private fun QuickAddButton(label: String, modifier: Modifier, onClick: () -> Uni
         modifier = modifier.height(48.dp),
         shape = RoundedCornerShape(12.dp),
         colors = ButtonDefaults.buttonColors(
-            containerColor = ApexSurface2,
-            contentColor = ApexText
+            containerColor = ApexInput,
+            contentColor = ApexTextPrimary
         ),
         contentPadding = PaddingValues(4.dp)
     ) {
@@ -217,7 +217,7 @@ private fun WaterLogRow(log: WaterLog, onDelete: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(10.dp))
-            .background(ApexSurface)
+            .background(ApexCard)
             .padding(horizontal = 14.dp, vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
@@ -232,7 +232,7 @@ private fun WaterLogRow(log: WaterLog, onDelete: () -> Unit) {
         }
         Spacer(Modifier.width(12.dp))
         Column(modifier = Modifier.weight(1f)) {
-            Text("${log.amountMl} ml", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = ApexText)
+            Text("${log.amountMl} ml", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = ApexTextPrimary)
             Text(time, fontSize = 12.sp, color = ApexTextMuted)
         }
         IconButton(onClick = onDelete, modifier = Modifier.size(32.dp)) {
@@ -246,8 +246,8 @@ private fun CustomAmountDialog(onConfirm: (Int) -> Unit, onDismiss: () -> Unit) 
     var input by remember { mutableStateOf("") }
     AlertDialog(
         onDismissRequest = onDismiss,
-        containerColor = ApexSurface,
-        title = { Text("Custom Amount", color = ApexText, fontWeight = FontWeight.Bold) },
+        containerColor = ApexCard,
+        title = { Text("Custom Amount", color = ApexTextPrimary, fontWeight = FontWeight.Bold) },
         text = {
             OutlinedTextField(
                 value = input,
@@ -256,9 +256,9 @@ private fun CustomAmountDialog(onConfirm: (Int) -> Unit, onDismiss: () -> Unit) 
                 singleLine = true,
                 colors = OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = ApexEmerald,
-                    unfocusedBorderColor = ApexSurface2,
-                    focusedTextColor = ApexText,
-                    unfocusedTextColor = ApexText
+                    unfocusedBorderColor = ApexInput,
+                    focusedTextColor = ApexTextPrimary,
+                    unfocusedTextColor = ApexTextPrimary
                 )
             )
         },
